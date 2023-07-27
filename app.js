@@ -31,7 +31,7 @@ const controller = async ({query}, res) => {
                 from: 'api',
                 data: e.response.data
             })
-        return res.status(500).json({msg: reenviame el error a mc.dencidance@gmail.com, error: e})
+        return res.status(500).json({msg: 'reenviame el error a mc.dencidance@gmail.com', error: e})
     }
 }
 
