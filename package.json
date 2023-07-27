@@ -1,0 +1,20 @@
+{
+  "name": "api_vpn",
+  "version": "1.0.0",
+  "description": "This is a VPN to access APIs, that can be prohibited in some countries.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "nodemon app.js"
+  },
+  "author": "Mc. Denci Dance",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
