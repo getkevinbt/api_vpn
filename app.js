@@ -3,7 +3,6 @@ console.clear();
 require('dotenv').config()
 const axios = require('axios')
 const express = require('express')
-const linkCheck = require('link-check');
 
 const app = express()
 
@@ -11,19 +10,11 @@ const controller = async ({query}, res) => {
 
     let {url, ...params} = query
 
-
     try{
-        /*linkCheck(`${url}?api_key=${params.api_key}`, async (e, result) => {
-            if (e) 
-                console.error(e.message)
-            console.log(`${result.link} is ${result.status}`);
-        });*/
         if (url.split("//").length == 1) url = '//'+url
         const {data} = await axios.get(url, {params})
-        console.log
         return res.json(data)
     }catch(e){
-        console.error(e.message)
         if (e.message === 'Invalid URL')
             return res.status(400).json({error: 'invalid url', from: 'vpn'})
         else if (e.message.includes('Unsupported protocol'))
@@ -38,6 +29,7 @@ const controller = async ({query}, res) => {
                 from: 'api',
                 data: e.response.data
             })
+        console.error(e)
     }
 }
 
