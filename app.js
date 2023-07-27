@@ -10,7 +10,7 @@ const controller = async ({query}, res) => {
 
     let {url, ...params} = query
 
-    if (!url)return res.status(406).json({error: complete url is required})
+    if (!url)return res.status(406).json({error: 'complete url is required'})
 
     try{
         if (url.split("//").length == 1) url = 'https://'+url
