@@ -10,8 +10,10 @@ const controller = async ({query}, res) => {
 
     let {url, ...params} = query
 
+    if (!url)return res.status(406).json({error: complete url is required})
+
     try{
-        if (url.split("//").length == 1) url = '//'+url
+        if (url.split("//").length == 1) url = 'https://'+url
         const {data} = await axios.get(url, {params})
         return res.json(data)
     }catch(e){
